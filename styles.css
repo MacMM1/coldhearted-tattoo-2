@@ -143,12 +143,12 @@ summary:focus-visible {
 }
 .site-header nav {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0.6rem clamp(1.25rem, 4vw, 3rem);
+  padding: 0.4rem clamp(1.25rem, 4vw, 3rem);
   max-width: var(--container); margin: 0 auto;
 }
 .nav-mark { display: flex; align-items: center; }
-.nav-logo { height: clamp(68px, 10vw, 108px); width: auto; }
-.nav-links { display: flex; align-items: center; gap: clamp(1rem, 2.4vw, 1.7rem); }
+.nav-logo { height: clamp(96px, 15vw, 190px); width: auto; }
+.nav-links { display: flex; align-items: center; gap: clamp(1rem, 2vw, 1.6rem); }
 .nav-links a {
   font-family: var(--font-label); font-size: 0.72rem; font-weight: 600;
   letter-spacing: 0.12em; text-transform: uppercase;
@@ -175,7 +175,7 @@ summary:focus-visible {
 .nav-toggle.is-open span:nth-child(2) { opacity: 0; }
 .nav-toggle.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-@media (max-width: 900px) {
+@media (max-width: 1120px) {
   .nav-toggle { display: flex; }
   .nav-links {
     position: fixed; inset: 0 0 0 auto; width: min(320px, 82vw); z-index: 600;

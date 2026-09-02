@@ -24,7 +24,7 @@
   });
   if (scrim) scrim.addEventListener('click', close);
   links.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
-  window.addEventListener('resize', function () { if (window.innerWidth > 900) close(); });
+  window.addEventListener('resize', function () { if (window.innerWidth > 1120) close(); });
 })();
 
 // Gallery lightbox (click a flash-card image to enlarge)
