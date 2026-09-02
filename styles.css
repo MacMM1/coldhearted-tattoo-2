@@ -143,11 +143,11 @@ summary:focus-visible {
 }
 .site-header nav {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 1rem clamp(1.25rem, 4vw, 3rem);
+  padding: 0.6rem clamp(1.25rem, 4vw, 3rem);
   max-width: var(--container); margin: 0 auto;
 }
 .nav-mark { display: flex; align-items: center; }
-.nav-logo { height: clamp(48px, 6vw, 66px); width: auto; }
+.nav-logo { height: clamp(68px, 10vw, 108px); width: auto; }
 .nav-links { display: flex; align-items: center; gap: clamp(1rem, 2.4vw, 1.7rem); }
 .nav-links a {
   font-family: var(--font-label); font-size: 0.72rem; font-weight: 600;
@@ -178,7 +178,7 @@ summary:focus-visible {
 @media (max-width: 900px) {
   .nav-toggle { display: flex; }
   .nav-links {
-    position: fixed; inset: 0 0 0 auto; width: min(320px, 82vw);
+    position: fixed; inset: 0 0 0 auto; width: min(320px, 82vw); z-index: 600;
     background: var(--ink); color: var(--bone);
     flex-direction: column; align-items: flex-start; justify-content: center;
     gap: 1.6rem; padding: 2rem clamp(1.5rem, 6vw, 2.5rem);
