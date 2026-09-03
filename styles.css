@@ -20,7 +20,7 @@
   --blue: #3E6D91;
   --blue-bright: #7BA9CC;
 
-  --font-mark: 'UnifrakturCook', 'IM Fell English SC', serif;
+  --font-mark: 'UnifrakturMaguntia', 'IM Fell English SC', serif;
   --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-label: 'Raleway', -apple-system, sans-serif;
 
@@ -222,8 +222,7 @@ summary:focus-visible {
   background: var(--stone);
   padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(3rem, 7vw, 5rem);
   overflow: hidden;
-  border-bottom: 3px solid;
-  border-image: linear-gradient(to right, var(--blue), var(--gold)) 1;
+  border-bottom: 3px solid var(--gold);
 }
 .hero-grid {
   display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem, 5vw, 4rem);
@@ -232,11 +231,11 @@ summary:focus-visible {
 .hero-copy .eyebrow { margin-bottom: 0.9rem; display: inline-block; }
 .hero-wordmark {
   font-family: var(--font-mark);
+  font-weight: 400;
   font-size: clamp(3.4rem, 8.4vw, 6.4rem);
   line-height: 1;
   margin: 0 0 0.3rem;
-  background: linear-gradient(180deg, var(--charcoal) 0%, var(--charcoal) 38%, var(--blue) 78%, var(--blue-bright) 100%);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
+  color: var(--ink);
 }
 .hero-sub {
   font-family: var(--font-label); font-size: 0.85rem; letter-spacing: 0.34em;
@@ -272,8 +271,7 @@ summary:focus-visible {
 /* ---------- simple page hero (interior pages) ---------- */
 .page-hero {
   background: var(--stone); padding: clamp(3rem, 7vw, 4.5rem) 0 clamp(2.4rem, 5vw, 3.2rem);
-  border-bottom: 3px solid;
-  border-image: linear-gradient(to right, var(--blue), var(--gold)) 1;
+  border-bottom: 3px solid var(--gold);
 }
 .page-hero h1 { font-size: clamp(2.1rem, 4.6vw, 3.4rem); margin-top: 0.5rem; }
 .page-hero .lede { margin-top: 0.9rem; }
@@ -334,16 +332,18 @@ summary:focus-visible {
 /* ==========================================================================
    Artists page
    ========================================================================== */
-.artist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: 1.6rem; }
-.artist-grid .flash-card { padding: 1.2rem; }
-.artist-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.1rem; }
+.artist-grid { display: flex; flex-direction: column; gap: 1.6rem; }
+.artist-grid .flash-card { padding: 1.75rem; }
+.artist-card-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 1.1rem; }
 .artist-role { font-family: var(--font-label); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
 .artist-card-head h2 { font-size: 1.5rem; margin-top: 0.2rem; }
 .artist-instagram { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--font-label); font-size: 0.75rem; color: var(--blue); flex-shrink: 0; }
 .artist-instagram svg { width: 16px; height: 16px; }
-.artist-highlights { display: flex; flex-direction: column; align-items: center; gap: 0.9rem; }
+.artist-highlights {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;
+}
 .artist-highlights iframe, .artist-highlights blockquote {
-  max-width: 100% !important; margin: 0 auto !important;
+  width: 100% !important; min-width: 0 !important; margin: 0 !important;
 }
 .instagram-follow {
   margin-top: 1.4rem; display: inline-flex; align-items: center; gap: 0.5rem;
