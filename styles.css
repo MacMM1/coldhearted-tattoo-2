@@ -20,7 +20,7 @@
   --blue: #3E6D91;
   --blue-bright: #7BA9CC;
 
-  --font-mark: 'Pirata One', 'IM Fell English SC', serif;
+  --font-mark: 'UnifrakturCook', 'IM Fell English SC', serif;
   --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-label: 'Raleway', -apple-system, sans-serif;
 
@@ -88,18 +88,6 @@ summary:focus-visible {
 }
 .section-ink .lede { color: var(--bone); }
 
-/* ---------- halftone paper grain ---------- */
-.bg-halftone { position: relative; }
-.bg-halftone::before {
-  content: "";
-  position: absolute; inset: 0;
-  background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1.4px);
-  background-size: 7px 7px;
-  opacity: 0.55;
-  pointer-events: none;
-}
-.bg-halftone > * { position: relative; z-index: 1; }
-
 /* ---------- sections ---------- */
 .section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
 .section-paper { background: var(--paper); }
@@ -139,7 +127,7 @@ summary:focus-visible {
 .site-header {
   position: sticky; top: 0; z-index: 500;
   background: var(--paper);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  border-bottom: 2px solid var(--gold);
 }
 .site-header nav {
   display: flex; align-items: center; justify-content: space-between;
@@ -159,10 +147,10 @@ summary:focus-visible {
 .nav-links a:hover { opacity: 1; color: var(--blue); border-color: var(--blue); }
 .nav-links a.nav-current { opacity: 1; border-color: var(--blue); color: var(--blue); }
 .nav-links a.nav-cta {
-  opacity: 1; border: 1px solid var(--charcoal); border-radius: 999px;
-  padding: 0.55rem 1.15rem; background: var(--charcoal); color: var(--paper);
+  opacity: 1; border: 1px solid var(--gold); border-radius: 999px;
+  padding: 0.55rem 1.15rem; background: var(--gold); color: var(--ink);
 }
-.nav-links a.nav-cta:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.nav-links a.nav-cta:hover { background: var(--gold-bright); border-color: var(--gold-bright); color: var(--ink); }
 
 .nav-toggle {
   display: none; flex-direction: column; justify-content: center; gap: 5px;
@@ -220,7 +208,7 @@ summary:focus-visible {
   padding: 1.6rem;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.flash-card:hover { transform: translateY(-4px) rotate(0deg) !important; box-shadow: 0 16px 34px rgba(0,0,0,0.2); }
+.flash-card:hover { transform: translateY(-4px) rotate(0deg) !important; box-shadow: 0 16px 34px rgba(0,0,0,0.2); border-color: var(--blue); }
 
 .tilt-grid > *:nth-child(3n+1) { transform: rotate(-1.6deg); }
 .tilt-grid > *:nth-child(3n+2) { transform: rotate(1.1deg); }
@@ -234,6 +222,8 @@ summary:focus-visible {
   background: var(--stone);
   padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(3rem, 7vw, 5rem);
   overflow: hidden;
+  border-bottom: 3px solid;
+  border-image: linear-gradient(to right, var(--blue), var(--gold)) 1;
 }
 .hero-grid {
   display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem, 5vw, 4rem);
@@ -242,10 +232,11 @@ summary:focus-visible {
 .hero-copy .eyebrow { margin-bottom: 0.9rem; display: inline-block; }
 .hero-wordmark {
   font-family: var(--font-mark);
-  font-size: clamp(3rem, 7.4vw, 5.6rem);
-  line-height: 0.95;
-  color: var(--charcoal);
+  font-size: clamp(3.4rem, 8.4vw, 6.4rem);
+  line-height: 1;
   margin: 0 0 0.3rem;
+  background: linear-gradient(180deg, var(--charcoal) 0%, var(--charcoal) 38%, var(--blue) 78%, var(--blue-bright) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .hero-sub {
   font-family: var(--font-label); font-size: 0.85rem; letter-spacing: 0.34em;
@@ -279,7 +270,11 @@ summary:focus-visible {
 }
 
 /* ---------- simple page hero (interior pages) ---------- */
-.page-hero { background: var(--stone); padding: clamp(3rem, 7vw, 4.5rem) 0 clamp(2.4rem, 5vw, 3.2rem); }
+.page-hero {
+  background: var(--stone); padding: clamp(3rem, 7vw, 4.5rem) 0 clamp(2.4rem, 5vw, 3.2rem);
+  border-bottom: 3px solid;
+  border-image: linear-gradient(to right, var(--blue), var(--gold)) 1;
+}
 .page-hero h1 { font-size: clamp(2.1rem, 4.6vw, 3.4rem); margin-top: 0.5rem; }
 .page-hero .lede { margin-top: 0.9rem; }
 
@@ -325,7 +320,11 @@ summary:focus-visible {
    ========================================================================== */
 .site-footer { background: var(--ink); color: var(--bone-dim); padding: clamp(3rem, 6vw, 4rem) 0 2rem; }
 .footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2.5rem; padding-bottom: 2.2rem; border-bottom: 1px solid rgba(244,244,244,0.14); }
-.footer-mark { font-family: var(--font-mark); font-size: 1.7rem; color: var(--bone); }
+.footer-mark {
+  font-family: var(--font-mark); font-size: 2rem;
+  background: linear-gradient(180deg, var(--bone) 0%, var(--bone) 35%, var(--blue-bright) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
 .footer-mark-sub { font-family: var(--font-label); font-size: 0.62rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-top: 0.3rem; }
 .footer-col h3 { font-family: var(--font-label); font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-bright); margin-bottom: 0.9rem; }
 .footer-col a, .footer-col p { display: block; font-family: var(--font-label); font-size: 0.85rem; color: var(--bone-dim); margin-bottom: 0.55rem; }
@@ -335,14 +334,17 @@ summary:focus-visible {
 /* ==========================================================================
    Artists page
    ========================================================================== */
-.artist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.6rem; }
+.artist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: 1.6rem; }
+.artist-grid .flash-card { padding: 1.2rem; }
 .artist-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.1rem; }
 .artist-role { font-family: var(--font-label); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
 .artist-card-head h2 { font-size: 1.5rem; margin-top: 0.2rem; }
 .artist-instagram { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--font-label); font-size: 0.75rem; color: var(--blue); flex-shrink: 0; }
 .artist-instagram svg { width: 16px; height: 16px; }
-.artist-highlights { display: flex; flex-direction: column; gap: 0.9rem; }
-.artist-highlights iframe, .artist-highlights blockquote { margin: 0 !important; width: 100% !important; }
+.artist-highlights { display: flex; flex-direction: column; align-items: center; gap: 0.9rem; }
+.artist-highlights iframe, .artist-highlights blockquote {
+  max-width: 100% !important; margin: 0 auto !important;
+}
 .instagram-follow {
   margin-top: 1.4rem; display: inline-flex; align-items: center; gap: 0.5rem;
   font-family: var(--font-label); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
